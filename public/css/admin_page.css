@@ -1,0 +1,371 @@
+/* my admin panal css  start*/
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+}
+.card {
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+.card-header {
+    background-color: white;
+    border-bottom: none;
+}
+
+.overview-item {
+    text-align: center;
+    padding: 10px;
+}
+.overview-item i {
+    font-size: 24px;
+    margin-bottom: 5px;
+}
+.chart-container {
+    height: 300px;
+}
+.card {
+    border: none;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+.card-header {
+    background-color: transparent;
+    border-bottom: none;
+    padding: 1.25rem 1.25rem 0.5rem;
+}
+.card-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+.list-group-item {
+    border: none;
+    padding: 0.75rem 1.25rem;
+}
+.list-group-item img {
+    border-radius: 5px;
+}
+.badge {
+    font-weight: 500;
+    padding: 0.35em 0.65em;
+}
+/* my admin panal css  end */
+
+
+/* haseeb admin panal start */
+/* report file css start */
+.search input{
+    width: 40%;
+}
+.search {
+    position: relative;
+    width: 300px; /* Adjust width as needed */
+}
+
+.search input {
+    width: 100%;
+    padding: 10px;
+    padding-left: 40px; /* Space for the icon */
+    font-size: 16px;
+}
+
+.search span {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #888; /* Adjust icon color as needed */
+}
+
+.overview {
+    border: 1px solid #E0E0E0;
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  
+  h3 {
+    font-size: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .row {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .column {
+    text-align: center;
+    flex: 1;
+  }
+  
+  .column:not(:last-child) {
+    margin-right: 10px;
+  }
+  
+  .price {
+    font-size: 11px;
+    font-weight: bold;
+  }
+  
+  .label {
+    color: #999;
+    margin-top: 5px;
+    font-size: 11px;
+  }
+  
+  .column:nth-child(2) .label {
+    color: orange; 
+  }
+  
+  .column:nth-child(3) .label {
+    color: purple;
+  }
+  
+  hr {
+    margin: 20px 0;
+    border: 0;
+    border-top: 3px solid #E0E0E0;
+  }
+  
+
+.color td{
+  color: #48505E;
+}
+  .best-selling-category {
+    border: 1px solid #E0E0E0;
+    border-radius: 8px;
+    padding: 22px;
+    background-color: #fff;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  h3 {
+    margin: 0;
+    font-size: 1.5rem;
+  }
+  
+  .see-all {
+    color: #007BFF;
+    text-decoration: none;
+  }
+  
+  .see-all:hover {
+    text-decoration: underline;
+  }
+  
+  .category-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .category-table th,
+  .category-table td {
+    text-align: left;
+    padding: 6px;
+    border-bottom: 1px solid #E0E0E0;
+  }
+  
+  .category-table thead th {
+    font-weight: bold;
+    color: #666;
+  }
+  
+  .category-table tbody tr:last-child td {
+    border-bottom: none;
+  }
+  
+  .highlight {
+    background-color: #007BFF;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 5px;
+  }
+  
+  .increase {
+    color: green;
+    font-weight: bold;
+  }
+
+  ul {
+    padding: 0;
+}
+
+/* li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px; 
+    margin-top: 40px;
+} */
+
+.amount {
+    margin-right: 10px; 
+}
+
+.line {
+    flex-grow: 1; 
+    height: 1px;
+    background-color: #dedbdb; 
+}
+.table{
+    background-color: #666;
+}
+/* report file css end */
+/* store file css start */
+.text {
+  background-color: #F0F1F3;
+  width: 150px;
+  height: 140px;
+}
+
+.text p {
+  text-align: center;
+  margin-top: 51px;
+}
+/* store file css end */
+/* suppliers file css start */
+.color td{
+  font-size: 13px;
+}
+.icon {
+  border: solid 1px black;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;          /* Flexbox to center content inside */
+  justify-content: center; /* Horizontally center the icon */
+  align-items: center;     /* Vertically center the icon */
+  margin: 0 auto;          /* Center the .icon in the parent container */
+}
+
+.col-5 {
+  display: flex;           /* Flexbox to center .icon inside .col-5 */
+  justify-content: center; /* Horizontally center .icon inside .col-5 */
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background-color: #f8f9fa;
+}
+
+.form-container {
+  width: 400px;
+  /* margin: 50px auto; */
+  padding: 20px;
+  /* background-color: white; */
+  border-radius: 10px;
+  /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
+}
+
+h2 {
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+.image-upload {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.image-placeholder {
+  width: 100px;
+  height: 100px;
+  border: 2px dashed #ddd;
+  border-radius: 50%;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 40px;
+  color: #ccc;
+  margin-bottom: 10px;
+}
+
+.image-upload p {
+  font-size: 14px;
+}
+
+.image-upload a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+input[type="text"], select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+input[type="radio"] {
+  margin-right: 10px;
+}
+
+.radio-buttons {
+  display: flex;
+  gap: 15px;
+}
+
+.form-buttons {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.discard {
+  background-color: #ddd;
+}
+
+.add-supplier {
+  background-color: #007bff;
+  color: white;
+}
+.image-upload {
+  height: 200px; /* Adjust the height as needed */
+  width: 100%;
+  /* border: 2px dashed #ccc;  Removing the outer border */
+  text-align: center;
+}
+
+.image-placeholder {
+  margin-right: 10px; /* Spacing between icon and text */
+}
+
+.image-upload i {
+  font-size: 50px; /* Adjust icon size */
+}
+
+/* suppliers file css end */
+
+/* haseeb admin panal end */

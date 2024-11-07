@@ -1,0 +1,931 @@
+/* my css start */
+/* Default light mode start*/
+body {
+    background-color: white;
+    color: black;
+}
+
+.atwo {
+    color: black;
+}
+
+.social i {
+    color: black;
+}
+
+/* h3,
+h4 {
+    color: black;
+} */
+
+.footeri {
+    color: black;
+}
+
+body.dark-mode {
+    background-color: #0f183a;
+    color: white;
+}
+
+body.dark-mode .atwo {
+    color: white;
+}
+
+body.dark-mode .social i {
+    color: white;
+}
+
+body.dark-mode h3,
+body.dark-mode h4 {
+    color: white;
+}
+
+body.dark-mode .footeri {
+    color: white;
+}
+body.dark-mode .h3one::before {
+    background-color: white;
+}
+body.dark-mode .breadcrumb-item-li {
+    color: white;
+}
+body.dark-mode .divone {
+    background-color: transparent !important;
+    border: 1px solid white !important;
+}
+body.dark-mode .card {
+    background-color: transparent !important;
+}
+
+body.dark-mode .aone {
+    color: white;
+}
+
+body.dark-mode p {
+    color: white;
+}
+body.dark-mode .btn {
+    color: white !important;
+}
+body.dark-mode select {
+    border-color: grey;
+    background-color: transparent;
+    color: white;
+}
+
+body.dark-mode .modal-content {
+    background-color: #0f183a;
+    box-shadow: 1px 1px 1px 1px rgb(255 255 255 / 25%);
+}
+
+body.dark-mode .modala {
+    color: white;
+}
+
+body.dark-mode .modalspan {
+    color: white;
+}
+/* Default light mode end*/
+
+.navbar {
+    background-color: #3c43a4;
+}
+.modala {
+    color: black;
+}
+
+.nav-item:hover {
+    border-bottom: 1px solid white;
+    transition: 1s;
+}
+
+.breadcrumb-item-a:hover {
+    color: black;
+    transition: 1s;
+}
+.h3one {
+    position: relative;
+    padding-left: 14%; /* Adjust this value as needed */
+    font-weight: bold;
+}
+
+.h3one::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 10%; /* Length of the line */
+    height: 2px; /* Thickness of the line */
+    background-color: black;
+    transform: translateY(-50%); /* Center the line vertically */
+}
+
+.card-title-a:hover {
+    color: #3c43a4 !important;
+    transition: 2s;
+}
+
+.card-body-button:hover {
+    background-color: #3c43a4;
+    color: white !important;
+    transition: 2s;
+}
+
+.newsletter {
+    background-color: #3c43a4;
+}
+
+.spantwo:hover {
+    background-color: #3c43a4 !important;
+    transition: 2s;
+}
+
+.atwo:hover {
+    color: #3c43a4;
+    transition: 2s;
+}
+
+.footeri {
+    color: #3c43a4;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    border-radius: 50%;
+    text-align: center;
+    margin-right: 1em;
+    font-size: 16px;
+    background: rgb(35 58 149 / 8%);
+}
+.social {
+    color: #3c43a4;
+    width: 35px;
+    height: 35px;
+    line-height: 35px;
+    background: rgb(6 6 6 / 8%);
+    border-radius: 100%;
+    text-align: center;
+}
+
+.social:hover {
+    background-color: #3c43a4;
+    color: white;
+}
+
+.dropdownmenuone {
+    width: 700%;
+    padding: 20%;
+}
+
+.containerone {
+    margin-bottom: 10%;
+}
+
+@media (max-width: 426px) {
+    .dropdown-menu {
+        width: auto;
+        padding: 20%;
+    }
+
+    .divone {
+        margin-left: 10%;
+    }
+    .coltwo {
+        text-align: center;
+    }
+
+    .cardtwo {
+        text-align: end;
+    }
+    .cardthree {
+        text-align: end;
+    }
+    .modal-dialog-one {
+        margin-left: 0% !important;
+    }
+}
+
+.cardtwo {
+    text-align: start;
+    margin-left: 8%;
+}
+.cardthree {
+    text-align: start;
+    margin-left: 8%;
+}
+
+.banner {
+    background-image: url("../images/banner8.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    /* height: 80vh; */
+    padding-top: 15%;
+    padding-bottom: 15%;
+}
+
+.spanone {
+    padding-left: 10%;
+}
+
+.spantwo {
+    width: 20%;
+}
+
+ul {
+    list-style: none;
+    margin: 0%;
+    padding: 0%;
+}
+
+.lione {
+    margin-bottom: 5%;
+}
+
+.aone {
+    text-decoration: none;
+    color: black;
+}
+
+.pone {
+    height: 55px;
+    width: 55px;
+    background-color: #3c43a4;
+    border-radius: 100%;
+    padding-top: 25%;
+}
+
+.atwo {
+    text-decoration: none;
+    /* color: black; */
+}
+
+li {
+    margin-bottom: 5%;
+}
+
+.cardone {
+    padding-top: 20%;
+}
+
+.w {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.25);
+    opacity: 0;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    transition: opacity 0.3s, transform 0.3s; /* Grouped transitions */
+    transform: translate(460px, -100px) rotate(180deg);
+}
+
+.eye {
+    position: absolute;
+    top: -30px; /* Start off-screen */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Center the icon */
+    transition: top 0.5s ease, opacity 0.3s; /* Smooth transition */
+    font-size: 20px; /* Adjust size as needed */
+    background-color: white; /* Background color for better visibility */
+    padding: 2%;
+    opacity: 0; /* Start invisible */
+}
+
+.wrapper:hover .eye {
+    top: 45%; /* Move to center vertically on hover */
+    opacity: 1; /* Show the icon */
+    overflow: hidden;
+}
+
+.wrapper:hover .w {
+    opacity: 1; /* Show the overlay */
+    transform: translateX(0%); /* Reset transform on hover */
+    transition: opacity 0.3s, transform 0.3s; /* Ensure smooth transition */
+}
+.wrapper {
+    overflow: hidden;
+}
+
+.wrapper:hover {
+    overflow: hidden;
+}
+
+.input1 {
+    height: 20px;
+    width: 30px;
+}
+.modaldiv1 {
+    padding-left: 18%;
+}
+.modal-dialog-one {
+    margin-left: 60%;
+}
+.modal1 .modal-backdrop {
+    background-color: transparent !important;
+}
+
+.btn-hover:hover {
+    background-color: #3c43a4;
+    color: white !important;
+    transition: 2s;
+}
+
+/* my css end */
+
+/* home page css start */
+.vegetable {
+    background-color: red;
+}
+
+.one {
+    background-image: url(../images/banner8.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    /* height: 90vh; */
+}
+
+.top {
+    padding-top: 30%;
+    padding-bottom: 15%;
+}
+
+.img-text {
+    color: white;
+}
+
+.img-text h1 {
+    font-size: 46px;
+    font-weight: bold;
+    padding-bottom: 30px;
+}
+
+.img-text p {
+    font-size: 20px;
+}
+
+.img-button a {
+    padding: 12px 34px 14px;
+    font-size: 16px;
+    color: #fff;
+    border-radius: var(--border-radius);
+    font-weight: bold;
+    outline: none;
+    border: none;
+    background: #ed174a;
+    transition: all 1.8s ease-in-out;
+    text-decoration: none;
+    border-radius: 10px;
+}
+
+.main-img img {
+    width: 100%;
+    height: auto;
+    padding-top: 30%;
+    padding-bottom: 15%;
+}
+
+.video img {
+    width: 100%;
+    border-radius: 50px;
+    margin-top: 50px;
+}
+
+.three-img img {
+    background-color: #f4f4f4;
+    border-radius: 10px;
+}
+
+.btn-hover {
+    color: black;
+    /* Initial text color */
+    border: solid 1px black;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    /* Smooth transition */
+}
+
+.btn-hover:hover {
+    background-color: rgb(22, 22, 186);
+    color: white;
+    /* Hover text color */
+    border: 0;
+}
+
+.back-one {
+    /* background-image: url(../images/bgs1.jpg); */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 65vh;
+}
+
+.back-two {
+    background-image: url(../images/bgs2.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 65vh;
+}
+
+.back-two {
+    /* background-color: #f0f0f0;  */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 65vh;
+}
+
+.nav-line {
+    margin-top: 60px;
+}
+
+.row-img {
+    margin-top: 20px;
+}
+
+.vegetable {
+    background-color: rgb(219, 52, 52) !important;
+    color: white !important;
+}
+
+.nav-link {
+    background-color: transparent;
+    color: black;
+}
+
+/* .nav-link:hover {
+    background-color: lightgray;
+} */
+
+.back-text {
+    text-align: end;
+    padding-top: 10%;
+    padding-right: 10%;
+    font-weight: bold;
+}
+
+.back-text h1 {
+    color: #ed174a;
+    font-weight: bold;
+}
+
+.back-text a {
+    text-decoration: none;
+}
+
+/* .back-two h4{
+    text-align: center;
+    margin-top: 28%;
+} */
+.back-two h4 {
+    background-color: #222e;
+    border: solid white 2px;
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    font-weight: bold;
+}
+
+/* .back-tex h4 {
+    margin: 0;
+    text-align: center;
+} */
+
+.special-img img {
+    width: 100%;
+    position: relative;
+    /* height: 57%; */
+}
+
+.special-img img:hover {
+    -webkit-transition: all 1s;
+    transition: all 1s;
+}
+
+.special img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.four {
+    margin-top: 60px;
+}
+
+.h-4 h2 {
+    text-align: center;
+    padding-top: 50px;
+}
+
+.special-text {
+    position: absolute;
+    right: 5%;
+    top: 5%;
+    width: 100px;
+    height: 100px;
+    background: #3c43a4;
+    border-radius: 50px;
+    -webkit-border-radius: 50px;
+}
+
+.special-img {
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.special-img {
+    display: block;
+    width: 100%;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.special-img img:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.special-text h5 {
+    text-align: center;
+    padding-top: 17px;
+    font-weight: 600;
+    font-size: 24px;
+    color: white;
+}
+
+.special-text p {
+    text-align: center;
+    font-size: 24px;
+    font-weight: 600;
+    color: white;
+}
+
+.special-img h4 {
+    position: absolute;
+    top: 23%;
+    padding-left: 50px;
+    font-size: 27px;
+    font-weight: 700;
+    color: white;
+}
+
+.special-img h3 {
+    position: absolute;
+    top: 72%;
+    padding-left: 50px;
+    font-size: 27px;
+    font-weight: 700;
+    color: white;
+}
+
+.big-deal {
+    text-align: center;
+    top: 20%;
+}
+
+.special {
+    position: relative;
+    height: 90vh;
+}
+
+.big-deal {
+    margin-top: 41px;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+
+    color: white;
+    padding: 10px 20px;
+    width: 100%;
+}
+
+.big-deal h3,
+.big-deal h4,
+.big-deal p,
+.big-deal h2 {
+    margin: 0;
+}
+
+.change-img {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    /* Adjust width as per your requirement */
+}
+
+.change-img img {
+    width: 100%;
+    background-color: #f0eeee;
+    border-radius: 8px;
+    display: block;
+}
+
+/* Icon styling */
+.change-img i {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -100%);
+    /* Initially position the icon above the image */
+    background-color: white;
+    padding: 8px;
+    border-radius: 50%;
+    opacity: 0;
+    /* Initially hide the icon */
+    transition: all 0.5s ease;
+    /* Smooth transition */
+}
+
+/* On hover, show the icon */
+.change-img:hover i {
+    top: 50%;
+    transform: translate(-50%, -50%);
+    /* Center the icon */
+    opacity: 1;
+    /* Make the icon visible */
+}
+
+.change-img::after {
+    background: rgba(121, 21, 21, 0.781) red;
+    z-index: 9999;
+}
+
+.custom-btn {
+    width: 150px;
+    border: solid 1px black;
+}
+
+.custom-btn:hover {
+    background-color: #3c43a4;
+    color: white;
+}
+
+/* .carousel {
+    background-color: red;
+} */
+
+.search-text {
+    margin-top: 50px;
+}
+
+.search input {
+    width: 80%;
+    padding: 15px;
+    border-bottom-left-radius: 30px;
+    border-top-left-radius: 30px;
+    border: 0;
+}
+
+.search {
+    text-align: center;
+    justify-content: center;
+    margin-top: 60px;
+}
+
+.search i {
+    background-color: rgb(238, 37, 37);
+    color: white;
+    padding: 20px;
+    border-bottom-right-radius: 30px;
+    border-top-right-radius: 30px;
+    margin-left: -5px;
+    width: 100px;
+}
+
+.icon-location i {
+    background-color: #bfc0db;
+    color: #233a95;
+    padding: 10px;
+    border-radius: 50px;
+    margin-top: 20px;
+}
+
+.icon-email i {
+    background-color: #bfc0db;
+    color: #233a95;
+    padding: 10px;
+    border-radius: 50px;
+    margin-top: 20px;
+}
+
+.icon-phone i {
+    background-color: #bfc0db;
+    color: #233a95;
+    padding: 10px;
+    border-radius: 50px;
+    margin-top: 20px;
+}
+
+.list li {
+    list-style: none;
+}
+
+.list a {
+    text-decoration: none;
+}
+
+.list a {
+    color: #363636;
+}
+
+.list {
+    margin-top: 40px;
+}
+
+.list li:hover {
+    color: #233a95;
+}
+
+.list a {
+    padding-left: 10px;
+}
+
+.facebook li {
+    background-color: #bfc0db;
+    color: #233a95;
+    padding: 10px;
+    border-radius: 50px;
+}
+
+.slider-container {
+    position: relative;
+    width: 100% !important;
+    overflow: hidden;
+}
+
+.slider {
+    display: flex;
+    overflow: hidden;
+}
+
+.slider-wrapper {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.slider-wrapper img {
+    width: 25%;
+    /* Show 4 images at a time */
+    flex-shrink: 0;
+    object-fit: cover;
+}
+
+.prev-btn,
+.next-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.prev-btn {
+    left: 10px;
+}
+
+.next-btn {
+    right: 10px;
+}
+
+.prev-btn {
+    margin-top: 28px;
+}
+
+.next-btn {
+    margin-top: 28px;
+}
+.mt-5 {
+    padding-bottom: 45px;
+}
+
+@media screen and (max-width: 361px) {
+    .img-text h1 {
+        font-size: 36px;
+    }
+
+    .line {
+        margin-top: 22px;
+    }
+
+    .line-img {
+        margin-top: 20px;
+    }
+
+    .special {
+        margin-top: 23px;
+    }
+
+    .change-img {
+        margin-top: 22px;
+    }
+
+    .search input {
+        width: 65%;
+    }
+
+    .back-two {
+        margin-top: 30px;
+    }
+
+    .special-text {
+        top: 1%;
+    }
+}
+
+@media screen and (max-width: 394px) {
+    .special {
+        margin-top: 20px;
+    }
+
+    .change-img {
+        margin-top: 22px;
+    }
+
+    .line-img {
+        margin-top: 20px;
+    }
+
+    .back-two {
+        margin-top: 30px;
+    }
+
+    .search input {
+        width: 65%;
+    }
+}
+
+@media screen and (max-width: 413px) {
+    .special {
+        margin-top: 20px;
+    }
+
+    .change-img {
+        margin-top: 22px;
+    }
+
+    .line-img {
+        margin-top: 20px;
+    }
+
+    .back-two {
+        margin-top: 30px;
+    }
+
+    .search input {
+        width: 65%;
+    }
+}
+
+@media screen and (max-width: 769px) {
+    .special {
+        margin-top: 20px;
+    }
+
+    .change-img {
+        margin-top: 22px;
+    }
+
+    .line-img {
+        margin-top: 20px;
+    }
+
+    .back-two {
+        margin-top: 30px;
+    }
+
+    .search input {
+        width: 65%;
+    }
+}
+
+@media screen and (max-width: 835px) {
+    .special {
+        margin-top: 20px;
+    }
+
+    .change-img {
+        margin-top: 22px;
+    }
+
+    .line-img {
+        margin-top: 20px;
+    }
+
+    .back-two {
+        margin-top: 30px;
+    }
+
+    .search input {
+        width: 65%;
+    }
+}
+
+/* home page css end */
