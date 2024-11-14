@@ -6,7 +6,7 @@
 <section>
     <div class="container">
         <div class="row">
-            <div class="col-lg-8" style="width: 83%;">
+            <div class="col-lg-8" style="width: 100%;">
                 <div class="row">
                     <!-- First Column -->
                     <div class="col-lg-6">

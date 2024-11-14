@@ -184,9 +184,9 @@
     <div class="row">
       
 
-        <div class="col-lg-10 col-md-12 col-sm-12">
+        <div class="col-lg-10 col-md-12 col-sm-12 w-100">
             <div class="row">
-                <div class="col-md-8">
+                <div class="col-md-7">
                     <div class="text">
                         <p>Suppliers</p>
                     </div>
@@ -200,7 +200,7 @@
                     
                 </div> -->
 
-                <div class="col-md-4">
+                <div class="col-md-5">
                     <div class="button">
                         <!-- Trigger for Scrollable modal -->
                         <button type="button" class="btn btn-primary" data-bs-toggle="modal"

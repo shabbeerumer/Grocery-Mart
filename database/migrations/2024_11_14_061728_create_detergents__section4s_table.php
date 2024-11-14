@@ -17,8 +17,7 @@ return new class extends Migration
             $table->string('second_image')->nullable();
             $table->string('first_text')->nullable();
             $table->string('cut_text')->nullable();
-            $table->string('second_text')->nullable();
-
+            $table->integer('second_text')->nullable();
             $table->timestamps();
         });
     }

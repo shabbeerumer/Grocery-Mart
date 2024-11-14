@@ -1,5 +1,10 @@
 <?php
 
+use App\Http\Controllers\AboutUsController;
+use App\Http\Controllers\AddToCartController;
+use App\Http\Controllers\BlogPostController;
+use App\Http\Controllers\BlogSingleController;
+use App\Http\Controllers\ContactUsController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MeatController;
@@ -9,6 +14,7 @@ use App\Http\Controllers\SignupController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\InventoryController;
 use App\Http\Controllers\DetergentsController;
+use App\Http\Controllers\FaqsController;
 use App\Http\Controllers\ProductInfoController;
 use App\Http\Controllers\HomeSection1Controller;
 use App\Http\Controllers\HomeSection2Controller;
@@ -21,7 +27,10 @@ use App\Http\Controllers\Products\Detergents\DetergentSection2Controller;
 use App\Http\Controllers\Products\Detergents\DetergentSection3Controller;
 use App\Http\Controllers\Products\Detergents\DetergentSection4Controller;
 use App\Http\Controllers\ReportController;
+use App\Http\Controllers\ShortCodesController;
+use App\Http\Controllers\SingleController;
 use App\Http\Controllers\StoreController;
+use App\Http\Controllers\StripeController;
 use App\Http\Controllers\SuppliersController;
 
 Route::get('/', function () {
@@ -32,9 +41,26 @@ Route::get('/', function () {
 Route::get('/meat', [MeatController::class, 'index'])->name('meat.index');
 Route::get('/Detergents', [DetergentsController::class, 'index'])->name('Detergents.index');
 Route::get('/home', [HomeController::class, 'index'])->name('home.index');
+Route::get('/faqs', [FaqsController::class, 'index'])->name('faqs.index');
+Route::get('/single', [SingleController::class, 'index'])->name('single.index');
+Route::get('/contactus', [ContactUsController::class, 'index'])->name('contactus.index');
+Route::get('/aboutus', [AboutUsController::class, 'index'])->name('aboutus.index');
+Route::get('/addtocart', [AddToCartController::class, 'index'])->name('addtocart.index');
+Route::get('/shortcodes', [ShortCodesController::class, 'index'])->name('shortcodes.index');
+Route::get('/blogsingle', [BlogSingleController::class, 'index'])->name('blogsingle.index');
+Route::get('/blogpost', [BlogPostController::class, 'index'])->name('blogpost.index');
+
 // user route end
 
 
+// user backend route start
+Route::post('/cart/add', [AddToCartController::class, 'addToCart'])->name('cart.add');
+Route::get('/cart', [AddToCartController::class, 'showCart'])->name('cart.show');
+Route::get('/cart/remove/{index}', [AddToCartController::class, 'removeItem'])->name('cart.remove');
+Route::post('stripe', [StripeController::class, 'stripe'])->name('stripe');
+Route::get('success', [StripeController::class, 'success'])->name('success');
+Route::get('cancel', [StripeController::class, 'cancel'])->name('cancel');
+// user backend route end
 
 
 // admin route start

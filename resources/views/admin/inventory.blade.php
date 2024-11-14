@@ -81,7 +81,7 @@
             </thead>
             <tbody>
               <tr>
-                <td>Maggi</td>
+                <td><a href="{{route('product_info.index')}}" class="text-decoration-none text-dark">Maggi</a></td>
                 <td>₹430</td>
                 <td>43 Packets</td>
                 <td>12 Packets</td>

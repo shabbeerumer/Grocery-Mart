@@ -180,13 +180,23 @@
                           </h5>
                           <p class="card-text">
                               <span class="text-decoration-line-through text-secondary">
-                                  {{$item->cut_text}}
+                                  ${{$item->cut_text}}
                               </span>
-                              <i>{{$item->second_text}}</i>
+                              <i>${{$item->second_text}}</i>
                           </p>
-                          <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal2">
+                          <form action="{{route('cart.add')}}" method="POST" enctype="multipart/form-data">
+                            @csrf
+                            <input type="hidden" name="item_id" value="{{$item->id}}">
+                            <input type="hidden" name="item_name" value="{{$item->first_text}}">
+                            <input type="hidden" name="item_price" value="{{$item->second_text}}">
+                            <input type="hidden" name="item_image" value="{{$item->first_image}}">
+                            <button type="submit" class="btn btn-outline-secondary text-dark card-body-button">
+                                Add To Cart
+                            </button>
+                        </form>
+                          {{-- <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal2">
                               <button type="button" class="btn btn-outline-secondary text-dark card-body-button">Add To Cart</button>
-                          </a>
+                          </a> --}}
                           <!-- Modal 2 (Transparent Backdrop) -->
                           <!-- (your modal code here) -->
                       </div>

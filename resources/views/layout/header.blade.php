@@ -90,24 +90,24 @@
         </li>
         
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">ABOUT US</a>
+            <a class="nav-link active" aria-current="page" href="{{route('aboutus.index')}}">ABOUT US</a>
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 PAGES
             </a>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">Blog Posts</a></li>
-              <li><a class="dropdown-item" href="#">Blog Single</a></li>
-              <li><a class="dropdown-item" href="#">Single</a></li>
-              <li><a class="dropdown-item" href="#">Faq's</a></li>
-              <li><a class="dropdown-item" href="#">Shortcodes</a></li>
+              <li><a class="dropdown-item" href="{{route('blogpost.index')}}">Blog Posts</a></li>
+              <li><a class="dropdown-item" href="{{route('blogsingle.index')}}">Blog Single</a></li>
+              <li><a class="dropdown-item" href="{{route('single.index')}}">Single</a></li>
+              <li><a class="dropdown-item" href="{{route('faqs.index')}}">Faq's</a></li>
+              <li><a class="dropdown-item" href="{{route('shortcodes.index')}}">Shortcodes</a></li>
 
 
             </ul>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">CONTACT US</a>
+            <a class="nav-link active" aria-current="page" href="{{route('contactus.index')}}">CONTACT US</a>
           </li>
         </ul>
       </div>

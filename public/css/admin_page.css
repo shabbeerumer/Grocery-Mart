@@ -222,14 +222,14 @@ body {
 /* report file css end */
 /* store file css start */
 .text {
-  background-color: #F0F1F3;
+  /* background-color: #F0F1F3; */
   width: 150px;
-  height: 140px;
+  height: 70px;
 }
 
 .text p {
   text-align: center;
-  margin-top: 51px;
+  /* margin-top: 51px; */
 }
 /* store file css end */
 /* suppliers file css start */
