@@ -57,16 +57,13 @@
 <table class="table table-striped" style="width:100%">
     <thead>
         <tr>
-            <th>first image</th>
-            <th>first text</th>
-            <th>second text</th>
-            <th>third text</th>
-            <th>fourth text</th>
-            <th>second image</th>
-            <th>edit</th>
-            <th>delete</th>
-
-
+            <th>First image</th>
+            <th>First text</th>
+            <th>Second text</th>
+            <th>Third text</th>
+            <th>Fourth text</th>
+            <th>Second image</th>
+            <th>Actions</th>
         </tr>
     </thead>
     <tbody>
@@ -78,60 +75,54 @@
             <td>{{ $item->price }}</td>
             <td>{{ $item->button_text }}</td>
             <td><img src="../image/{{ $item->second_image }}" alt="" height="50" width="50"></td>
-
             <td>
-                <a href="{{ route('home_section5.edit', $item->id) }}">
-                    <button type="button" class="btn btn-warning">Edit</button>
-                </a>
-            </td>
-            <td>
+                <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#editModal-{{ $item->id }}">Edit</button>
+            
                 <a href="{{ route('home_section5.delete', $item->id) }}">
-
-                <button type="button" class="btn btn-danger">Delete</button>
-            </a>
-
+                    <button type="button" class="btn btn-danger">Delete</button>
+                </a>
             </td>
         </tr>
         @endforeach
     </tbody>
 </table>
 
-<!-- Edit Modal -->
- @if(isset($section5_edit))
-<div class="modal fade show" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true" style="display: block;">
+<!-- Edit Modals (Dynamic for each item) -->
+@foreach ($section5_all_data as $item)
+<div class="modal fade" id="editModal-{{ $item->id }}" tabindex="-1" aria-labelledby="editModalLabel-{{ $item->id }}" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="editModalLabel">Edit Data</h5>
+                <h5 class="modal-title" id="editModalLabel-{{ $item->id }}">Edit Data</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form action="{{ route('home_section5.update', $section5_edit->id) }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('home_section5.update', $item->id) }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="mb-3">
-                        <label class="form-label">edit first image</label>
-                        <input type="file" class="form-control" name="first_image" value="{{ $section5_edit->first_image }}">
+                        <label class="form-label">Edit first image</label>
+                        <input type="file" class="form-control" name="first_image" value="{{ $item->first_image }}">
                     </div>
             
                     <div class="mb-3">
-                        <label class="form-label">edit first text</label>
-                        <input type="text" class="form-control" name="first_text" value="{{ $section5_edit->first_text }}">
+                        <label class="form-label">Edit first text</label>
+                        <input type="text" class="form-control" name="first_text" value="{{ $item->title }}">
                     </div>
                     <div class="mb-3">
-                        <label class="form-label">edit second text</label>
-                        <input type="text" class="form-control" name="second_text" value="{{ $section5_edit->second_text }}">
+                        <label class="form-label">Edit second text</label>
+                        <input type="text" class="form-control" name="second_text" value="{{ $item->cut_price }}">
                     </div>
                     <div class="mb-3">
-                        <label class="form-label">edit third text</label>
-                        <input type="text" class="form-control" name="third_text" value="{{ $section5_edit->third_text }}">
+                        <label class="form-label">Edit third text</label>
+                        <input type="text" class="form-control" name="third_text" value="{{ $item->price }}">
                     </div>
                     <div class="mb-3">
-                        <label class="form-label">edit fourth text</label>
-                        <input type="text" class="form-control" name="fourth_text" value="{{ $section5_edit->fourth_text }}">
+                        <label class="form-label">Edit fourth text</label>
+                        <input type="text" class="form-control" name="fourth_text" value="{{ $item->button_text }}">
                     </div>
                     <div class="mb-3">
-                        <label class="form-label">edit second image</label>
-                        <input type="file" class="form-control" name="second_image" value="{{ $section5_edit->second_image }}">
+                        <label class="form-label">Edit second image</label>
+                        <input type="file" class="form-control" name="second_image" value="{{ $item->second_image }}">
                     </div>
                     <div class="modal-footer">
                         <button type="submit" class="btn btn-primary">Save changes</button>
@@ -142,5 +133,6 @@
         </div>
     </div>
 </div>
-@endif 
+@endforeach
+
 @endsection

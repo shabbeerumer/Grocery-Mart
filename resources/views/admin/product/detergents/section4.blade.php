@@ -56,14 +56,11 @@
         <tr>
             <th>first image</th>
             <th>second image</th>
-
             <th>First Text</th>
             <th>cut Text</th>
-
             <th>Second Text</th>
-           
-            <th>Edit</th>
-            <th>Delete</th>
+            <th>Actions</th>
+            
         </tr>
     </thead>
     <tbody>
@@ -80,8 +77,7 @@
                
                 <td>
                     <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#editModal-{{ $item->id }}">Edit</button>
-                </td>
-                <td>
+                
                     <a href="{{ route('pds4.delete', $item->id) }}" class="btn btn-danger">Delete</a>
                 </td>
             </tr>

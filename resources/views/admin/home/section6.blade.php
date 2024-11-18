@@ -15,7 +15,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form action="{{route('home_section6.post')}}" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('home_section6.post') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="mb-3">
                         <label class="form-label">Add main text</label>
@@ -25,9 +25,6 @@
                         <label class="form-label">Add image</label>
                         <input type="file" class="form-control" name="first_image">
                     </div>
-            
-                    
-                   
                     <div class="modal-footer">
                         <button type="submit" class="btn btn-primary">Save changes</button>
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -44,10 +41,7 @@
         <tr>
             <th>main text</th>
             <th>first image</th>
-            <th>edit</th>
-            <th>delete</th>
-
-
+            <th>Actions</th>
         </tr>
     </thead>
     <tbody>
@@ -55,48 +49,39 @@
         <tr>
             <td>{{ $item->main_text }}</td>
             <td><img src="../image/{{ $item->first_image }}" alt="" height="50" width="50"></td>
-          
             <td>
-                <a href="{{ route('home_section6.edit', $item->id) }}">
-                    <button type="button" class="btn btn-warning">Edit</button>
-                </a>
-            </td>
-            <td>
+                <!-- Edit Button triggers Edit Modal -->
+                <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#editModal-{{ $item->id }}">Edit</button>
+           
                 <a href="{{ route('home_section6.delete', $item->id) }}">
-
-                <button type="button" class="btn btn-danger">Delete</button>
-            </a>
-
+                    <button type="button" class="btn btn-danger">Delete</button>
+                </a>
             </td>
         </tr>
         @endforeach
     </tbody>
 </table>
 
-<!-- Edit Modal -->
- @if(isset($section6_edit))
-<div class="modal fade show" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true" style="display: block;">
+<!-- Edit Modals (one for each entry) -->
+@foreach ($section6_all_data as $item)
+<div class="modal fade" id="editModal-{{ $item->id }}" tabindex="-1" aria-labelledby="editModalLabel-{{ $item->id }}" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="editModalLabel">Edit Data</h5>
+                <h5 class="modal-title" id="editModalLabel-{{ $item->id }}">Edit Data</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form action="{{ route('home_section6.update', $section6_edit->id) }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('home_section6.update', $item->id) }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="mb-3">
-                        <label class="form-label">edit main text</label>
-                        <input type="text" class="form-control" name="main_text" value="{{ $section6_edit->main_text }}">
+                        <label class="form-label">Edit main text</label>
+                        <input type="text" class="form-control" name="main_text" value="{{ $item->main_text }}">
                     </div>
                     <div class="mb-3">
-                        <label class="form-label">edit first image</label>
-                        <input type="file" class="form-control" name="first_image" value="{{ $section6_edit->first_image }}">
+                        <label class="form-label">Edit first image</label>
+                        <input type="file" class="form-control" name="first_image" value="{{ $item->first_image }}">
                     </div>
-                    
-            
-                    
-                   
                     <div class="modal-footer">
                         <button type="submit" class="btn btn-primary">Save changes</button>
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -105,6 +90,7 @@
             </div>
         </div>
     </div>
-</div> 
-@endif
+</div>
+@endforeach
+
 @endsection

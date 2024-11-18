@@ -76,8 +76,7 @@
             <th>Sixth Text</th>
             <th>Seventh Text</th>
             <th>Eighth Text</th>
-            <th>Edit</th>
-            <th>Delete</th>
+            <th>Actions</th>
         </tr>
     </thead>
     <tbody>
@@ -93,9 +92,8 @@
                 <td>{{ $item->seventh_text }}</td>
                 <td>{{ $item->eighth_text }}</td>
                 <td>
-                    <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#editModal-{{ $item->id }}">Edit</button>
-                </td>
-                <td>
+                    <button type="button" class="btn btn-warning mb-1" data-bs-toggle="modal" data-bs-target="#editModal-{{ $item->id }}">Edit</button>
+                
                     <a href="{{ route('pds2.delete', $item->id) }}" class="btn btn-danger">Delete</a>
                 </td>
             </tr>

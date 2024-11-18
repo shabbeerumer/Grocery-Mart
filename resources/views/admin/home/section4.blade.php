@@ -15,35 +15,34 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form action="{{route('home_section4.post')}}" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('home_section4.post') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="mb-3">
-                        <label class="form-label">Add first image</label>
+                        <label class="form-label">Add First Image</label>
                         <input type="file" class="form-control" name="first_image">
                     </div>
-            
                     <div class="mb-3">
-                        <label class="form-label">Add first text</label>
+                        <label class="form-label">Add First Text</label>
                         <input type="text" class="form-control" name="first_text">
                     </div>
                     <div class="mb-3">
-                        <label class="form-label">Add second text</label>
+                        <label class="form-label">Add Second Text</label>
                         <input type="text" class="form-control" name="second_text">
                     </div>
                     <div class="mb-3">
-                        <label class="form-label">add third text</label>
+                        <label class="form-label">Add Third Text</label>
                         <input type="text" class="form-control" name="third_text">
                     </div>
                     <div class="mb-3">
-                        <label class="form-label">Add fourth text</label>
+                        <label class="form-label">Add Fourth Text</label>
                         <input type="text" class="form-control" name="fourth_text">
                     </div>
                     <div class="mb-3">
-                        <label class="form-label">Add second image</label>
+                        <label class="form-label">Add Second Image</label>
                         <input type="file" class="form-control" name="second_image">
                     </div>
                     <div class="mb-3">
-                        <label class="form-label">Add third image</label>
+                        <label class="form-label">Add Third Image</label>
                         <input type="file" class="form-control" name="third_image">
                     </div>
                     <div class="modal-footer">
@@ -60,17 +59,15 @@
 <table class="table table-striped" style="width:100%">
     <thead>
         <tr>
-            <th>first image</th>
-            <th>first text</th>
-            <th>second text</th>
-            <th>third text</th>
-            <th>fourth text</th>
-            <th>second image</th>
-            <th>third image</th>
-            <th>edit</th>
-            <th>delete</th>
-
-
+            <th>First Image</th>
+            <th>First Text</th>
+            <th>Second Text</th>
+            <th>Third Text</th>
+            <th>Fourth Text</th>
+            <th>Second Image</th>
+            <th>Third Image</th>
+            <th>Actions</th>
+            
         </tr>
     </thead>
     <tbody>
@@ -83,64 +80,55 @@
             <td>{{ $item->fourth_text }}</td>
             <td><img src="../image/{{ $item->second_image }}" alt="" height="50" width="50"></td>
             <td><img src="../image/{{ $item->third_image }}" alt="" height="50" width="50"></td>
-
             <td>
-                <a href="{{ route('home_section4.edit', $item->id) }}">
-                    <button type="button" class="btn btn-warning">Edit</button>
-                </a>
-            </td>
-            <td>
-                <a href="{{ route('home_section4.delete', $item->id) }}">
-
-                <button type="button" class="btn btn-danger">Delete</button>
-            </a>
-
+                <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#editModal-{{ $item->id }}">Edit</button>
+           
+                <a href="{{ route('home_section4.delete', $item->id) }}" class="btn btn-danger">Delete</a>
             </td>
         </tr>
         @endforeach
     </tbody>
 </table>
 
-<!-- Edit Modal -->
- @if(isset($section4_edit))
-<div class="modal fade show" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true" style="display: block;">
+<!-- Edit Modal (Conditional Display with ID) -->
+@foreach ($section4_all_data as $item)
+<div class="modal fade" id="editModal-{{ $item->id }}" tabindex="-1" aria-labelledby="editModalLabel-{{ $item->id }}" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="editModalLabel">Edit Data</h5>
+                <h5 class="modal-title" id="editModalLabel-{{ $item->id }}">Edit Data</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form action="{{ route('home_section4.update', $section4_edit->id) }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('home_section4.update', $item->id) }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="mb-3">
-                        <label class="form-label">edit first image</label>
-                        <input type="file" class="form-control" name="first_image" value="{{ $section4_edit->first_image }}">
-                    </div>
-            
-                    <div class="mb-3">
-                        <label class="form-label">edit first text</label>
-                        <input type="text" class="form-control" name="first_text" value="{{ $section4_edit->first_text }}">
+                        <label class="form-label">Edit First Image</label>
+                        <input type="file" class="form-control" name="first_image" value="{{ $item->first_image }}">
                     </div>
                     <div class="mb-3">
-                        <label class="form-label">edit second text</label>
-                        <input type="text" class="form-control" name="second_text" value="{{ $section4_edit->second_text }}">
+                        <label class="form-label">Edit First Text</label>
+                        <input type="text" class="form-control" name="first_text" value="{{ $item->first_text }}">
                     </div>
                     <div class="mb-3">
-                        <label class="form-label">edit third text</label>
-                        <input type="text" class="form-control" name="third_text" value="{{ $section4_edit->third_text }}">
+                        <label class="form-label">Edit Second Text</label>
+                        <input type="text" class="form-control" name="second_text" value="{{ $item->second_text }}">
                     </div>
                     <div class="mb-3">
-                        <label class="form-label">edit fourth text</label>
-                        <input type="text" class="form-control" name="fourth_text" value="{{ $section4_edit->fourth_text }}">
+                        <label class="form-label">Edit Third Text</label>
+                        <input type="text" class="form-control" name="third_text" value="{{ $item->third_text }}">
                     </div>
                     <div class="mb-3">
-                        <label class="form-label">edit second image</label>
-                        <input type="file" class="form-control" name="second_image" value="{{ $section4_edit->second_image }}">
+                        <label class="form-label">Edit Fourth Text</label>
+                        <input type="text" class="form-control" name="fourth_text" value="{{ $item->fourth_text }}">
                     </div>
                     <div class="mb-3">
-                        <label class="form-label">edit third image</label>
-                        <input type="file" class="form-control" name="third_image" value="{{ $section4_edit->third_image }}">
+                        <label class="form-label">Edit Second Image</label>
+                        <input type="file" class="form-control" name="second_image" value="{{ $item->second_image }}">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Edit Third Image</label>
+                        <input type="file" class="form-control" name="third_image" value="{{ $item->third_image }}">
                     </div>
                     <div class="modal-footer">
                         <button type="submit" class="btn btn-primary">Save changes</button>
@@ -151,5 +139,6 @@
         </div>
     </div>
 </div>
-@endif 
+@endforeach
+
 @endsection

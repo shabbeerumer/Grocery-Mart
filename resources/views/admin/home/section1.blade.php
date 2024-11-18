@@ -51,8 +51,8 @@
             <th>Description</th>
             <th>Image</th>
             <th>Button Text</th>
-            <th>Edit</th>
-            <th>Delete</th>
+            <th>Actions</th>
+            
         </tr>
     </thead>
     <tbody>
@@ -63,25 +63,27 @@
             <td><img src="../image/{{ $item->image }}" alt="" height="50" width="50"></td>
             <td>{{ $item->button_text }}</td>
             <td>
-                <a href="{{ route('home_section1.edit', $item->id) }}">
-                    <button type="button" class="btn btn-warning">Edit</button>
+                <button type="button" class="btn btn-warning edit-btn" data-bs-toggle="modal" 
+                        data-bs-target="#editModal" 
+                        data-id="{{ $item->id }}" 
+                        data-title="{{ $item->title }}" 
+                        data-description="{{ $item->description }}" 
+                        data-button-text="{{ $item->button_text }}"
+                        data-image="{{ $item->image }}">
+                    Edit
+                </button>
+                <a href="{{ route('home_section1.delete', $item->id) }}">
+                    <button type="button" class="btn btn-danger">Delete</button>
                 </a>
             </td>
-            <td>
-                <a href="{{ route('home_section1.delete', $item->id) }}">
-
-                <button type="button" class="btn btn-danger">Delete</button>
-            </a>
-
-            </td>
+            
         </tr>
         @endforeach
     </tbody>
 </table>
 
 <!-- Edit Modal -->
-@if(isset($section1_edit))
-<div class="modal fade show" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true" style="display: block;">
+<div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -89,23 +91,25 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form action="{{ route('home_section1.update', $section1_edit->id) }}" method="POST" enctype="multipart/form-data">
+                <form id="editForm" action="{{ route('home_section1.update', '') }}" method="POST" enctype="multipart/form-data">
                     @csrf
+                    <input type="hidden" name="id" id="edit-id">
                     <div class="mb-3">
                         <label class="form-label">Edit Title</label>
-                        <input type="text" class="form-control" name="title" value="{{ $section1_edit->title }}">
+                        <input type="text" class="form-control" name="title" id="edit-title">
                     </div>
                     <div class="mb-3">
                         <label class="form-label">Edit Description</label>
-                        <input type="text" class="form-control" name="description" value="{{ $section1_edit->description }}">
+                        <input type="text" class="form-control" name="description" id="edit-description">
                     </div>
                     <div class="mb-3">
                         <label class="form-label">Edit Image</label>
-                        <input type="file" class="form-control" name="image">
+                        <input type="file" class="form-control" name="image" id="edit-image">
+                        {{-- <img id="edit-image-preview" src="" alt="" height="50" width="50" class="mt-2"> --}}
                     </div>
                     <div class="mb-3">
                         <label class="form-label">Edit Button Text</label>
-                        <input type="text" class="form-control" name="button_text" value="{{ $section1_edit->button_text }}">
+                        <input type="text" class="form-control" name="button_text" id="edit-button-text">
                     </div>
                     <div class="modal-footer">
                         <button type="submit" class="btn btn-primary">Save changes</button>
@@ -116,5 +120,33 @@
         </div>
     </div>
 </div>
-@endif
+
+<!-- JavaScript to Populate Modal Fields -->
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        // Select all edit buttons
+        const editButtons = document.querySelectorAll('.edit-btn');
+        
+        editButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                // Get data attributes from the button
+                const id = this.getAttribute('data-id');
+                const title = this.getAttribute('data-title');
+                const description = this.getAttribute('data-description');
+                const buttonText = this.getAttribute('data-button-text');
+                const image = this.getAttribute('data-image');
+
+                // Populate the modal fields
+                document.getElementById('edit-id').value = id;
+                document.getElementById('edit-title').value = title;
+                document.getElementById('edit-description').value = description;
+                document.getElementById('edit-button-text').value = buttonText;
+                document.getElementById('edit-image-preview').src = "../image/" + image;
+
+                // Update form action URL with the item id
+                document.getElementById('editForm').action = "{{ route('home_section1.update', '') }}/" + id;
+            });
+        });
+    });
+</script>
 @endsection

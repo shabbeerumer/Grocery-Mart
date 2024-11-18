@@ -655,7 +655,7 @@
                                     <a href="#" class="text-decoration-none text-danger card-title-a">{{ $product['title'] }}</a>
                                 </h5>
                                 <p class="card-text">
-                                    <span class="text-decoration-line-through text-secondary">${{ $product['discounted_price'] }}</span>
+                                    <span class="text-decoration-line-through text-secondary">${{ $product['cut_price'] }}</span>
                                     <i>${{ $product['price'] }}</i>
                                 </p>
                                 <button type="button" class="btn btn-outline-secondary text-dark card-body-button">Add To Cart</button>

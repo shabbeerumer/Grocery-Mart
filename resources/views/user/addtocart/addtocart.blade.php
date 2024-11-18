@@ -98,6 +98,7 @@
              <!-- Check if there are items in the cart -->
              @if(count($dbn) > 0)
              @foreach ($dbn as $index => $item)
+             @dd($dbn)
              <div class="card rounded-3 mb-4 cart-item">
                <div class="card-body p-4">
                  <div class="row d-flex justify-content-between align-items-center">

@@ -1,20 +1,27 @@
 <?php
 
-use App\Http\Controllers\AboutUsController;
-use App\Http\Controllers\AddToCartController;
-use App\Http\Controllers\BlogPostController;
-use App\Http\Controllers\BlogSingleController;
-use App\Http\Controllers\ContactUsController;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\FaqsController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MeatController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\StoreController;
 use App\Http\Controllers\ordersController;
+use App\Http\Controllers\ReportController;
 use App\Http\Controllers\SignupController;
+use App\Http\Controllers\SingleController;
+use App\Http\Controllers\StripeController;
+use App\Http\Controllers\AboutUsController;
+use App\Http\Controllers\BlogPostController;
+use App\Http\Controllers\AddToCartController;
+use App\Http\Controllers\ContactUsController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\InventoryController;
+use App\Http\Controllers\SuppliersController;
+use App\Http\Controllers\BlogSingleController;
 use App\Http\Controllers\DetergentsController;
-use App\Http\Controllers\FaqsController;
+use App\Http\Controllers\ShortCodesController;
 use App\Http\Controllers\ProductInfoController;
 use App\Http\Controllers\HomeSection1Controller;
 use App\Http\Controllers\HomeSection2Controller;
@@ -26,12 +33,6 @@ use App\Http\Controllers\Products\Detergents\DetergentSection1Controller;
 use App\Http\Controllers\Products\Detergents\DetergentSection2Controller;
 use App\Http\Controllers\Products\Detergents\DetergentSection3Controller;
 use App\Http\Controllers\Products\Detergents\DetergentSection4Controller;
-use App\Http\Controllers\ReportController;
-use App\Http\Controllers\ShortCodesController;
-use App\Http\Controllers\SingleController;
-use App\Http\Controllers\StoreController;
-use App\Http\Controllers\StripeController;
-use App\Http\Controllers\SuppliersController;
 
 Route::get('/', function () {
     return view('welcome');

@@ -46,8 +46,7 @@
             <th>first text</th>
             <th>second text</th>
             <th>third text</th>
-            <th>Edit</th>
-            <th>Delete</th>
+            <th>Actions</th>
         </tr>
     </thead>
     <tbody>
@@ -57,48 +56,42 @@
             <td>{{ $item->second_text }}</td>
             <td>{{ $item->third_text }}</td>
             <td>
-                <a href="{{ route('pds1.edit', $item->id) }}">
-                    <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#editModal">Edit</button>
-                </a>
-            </td>
-            <td>
+                <!-- Trigger the edit modal -->
+                <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#editModal{{ $item->id }}">Edit</button>
+           
                 <a href="{{ route('pds1.delete', $item->id) }}">
-
-                <button type="button" class="btn btn-danger">Delete</button>
-            </a>
-
+                    <button type="button" class="btn btn-danger">Delete</button>
+                </a>
             </td>
         </tr>
         @endforeach
     </tbody>
 </table>
 
-<!-- Edit Modal -->
-@if(isset($section1_edit))
-<div class="modal fade show" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true" style="display: block;">
+<!-- Edit Modal (Dynamic ID) -->
+@foreach ($section1_all_data as $item)
+<div class="modal fade" id="editModal{{ $item->id }}" tabindex="-1" aria-labelledby="editModalLabel{{ $item->id }}" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="editModalLabel">Edit Data</h5>
+                <h5 class="modal-title" id="editModalLabel{{ $item->id }}">Edit Data</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form action="{{ route('pds1.update', $section1_edit->id) }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('pds1.update', $item->id) }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="mb-3">
                         <label class="form-label">Edit first text</label>
-                        <input type="text" class="form-control" name="first_text" value="{{ $section1_edit->first_text }}">
+                        <input type="text" class="form-control" name="first_text" value="{{ $item->first_text }}">
                     </div>
                     <div class="mb-3">
                         <label class="form-label">Edit second text</label>
-                        <input type="text" class="form-control" name="second_text" value="{{ $section1_edit->second_text }}">
+                        <input type="text" class="form-control" name="second_text" value="{{ $item->second_text }}">
                     </div>
                     <div class="mb-3">
                         <label class="form-label">Edit third text</label>
-                        <input type="text" class="form-control" name="third_text" value="{{ $section1_edit->third_text }}">
+                        <input type="text" class="form-control" name="third_text" value="{{ $item->third_text }}">
                     </div>
-                   
-                   
                     <div class="modal-footer">
                         <button type="submit" class="btn btn-primary">Save changes</button>
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -108,7 +101,6 @@
         </div>
     </div>
 </div>
-@endif
-
+@endforeach
 
 @endsection

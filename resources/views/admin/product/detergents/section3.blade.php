@@ -53,23 +53,20 @@
             <th>First Text</th>
             <th>Second Text</th>
             <th>Third Text</th>
-           
-            <th>Edit</th>
-            <th>Delete</th>
+            <th>Actions</th>
         </tr>
     </thead>
     <tbody>
         @foreach ($section3_all_data as $item)
             <tr>
-                <td><img src="../image/{{$item->image}}" alt="image" height="50" width="50"></td>
+                <td><img src="{{ asset('image/' . $item->image) }}" alt="image" height="50" width="50"></td>
                 <td>{{ $item->first_text }}</td>
                 <td>{{ $item->second_text }}</td>
                 <td>{{ $item->third_text }}</td>
                
                 <td>
                     <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#editModal-{{ $item->id }}">Edit</button>
-                </td>
-                <td>
+               
                     <a href="{{ route('pds3.delete', $item->id) }}" class="btn btn-danger">Delete</a>
                 </td>
             </tr>
