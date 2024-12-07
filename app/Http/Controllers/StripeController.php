@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\WelcomeEmail;
 use App\Models\StripePayment;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class StripeController extends Controller
 {
@@ -46,37 +48,84 @@ class StripeController extends Controller
         }
     }
 
-    public function success(Request $request)
-    {
-        if (isset($request->session_id)) {
-            $stripe = new \Stripe\StripeClient(config('stripe.stripe_sk'));
-            $response = $stripe->checkout->sessions->retrieve($request->session_id);
+    // public function success(Request $request)
+    // {
+    //     if (isset($request->session_id)) {
+    //         $stripe = new \Stripe\StripeClient(config('stripe.stripe_sk'));
+    //         $response = $stripe->checkout->sessions->retrieve($request->session_id);
 
-            // Check if customer details are available
-            $customerDetails = $response->customer_details ?? null;
-            $payerName = $customerDetails->name ?? 'Guest';
-            $payerEmail = $customerDetails->email ?? 'No email provided';
+    //         // Check if customer details are available
+    //         $customerDetails = $response->customer_details ?? null;
+    //         $payerName = $customerDetails->name ?? 'Guest';
+    //         $payerEmail = $customerDetails->email ?? 'No email provided';
 
-            $payment = new StripePayment();
-            $payment->payment_id = $response->id;
-            $payment->product_name = session()->get('product_name');
-            $payment->quantity = session()->get('item_id');
-            $payment->amount = session()->get('total_price');
-            $payment->currency = $response->currency;
-            $payment->payer_name = $payerName;
-            $payment->payer_email = $payerEmail;
-            $payment->payment_status = $response->status;
-            $payment->payment_method = 'stripe';
-            $payment->save();
+    //         $payment = new StripePayment();
 
-            // Clear session data
-            session()->forget(['product_name', 'item_id', 'total_price', 'item_quantity']);
+    //         $payment->payment_id = $response->id;
+    //         $payment->product_name = session()->get('product_name') ?? 'Unknown Product';
+    //         $payment->quantity = session()->get('item_id') ?? 'Unknown quantity';
+    //         $payment->amount = session()->get('total_price') ?? 'Unknown amount';
+    //         $payment->currency = $response->currency;
+    //         $payment->payer_name = $payerName;
+    //         $payment->payer_email = $payerEmail;
+    //         $payment->payment_status = $response->status;
+    //         $payment->payment_method = 'stripe';
+    //         $payment->save();
 
-            return redirect()->back();
-        } else {
-            return redirect()->route('cancel');
+    //         // Clear session data
+    //         session()->forget(['product_name', 'item_id', 'total_price', 'item_quantity']);
+
+    //         return redirect()->route('mail');
+    //     } else {
+    //         return redirect()->route('cancel');
+    //     }
+    // }
+
+
+   
+
+public function success(Request $request)
+{
+    if (isset($request->session_id)) {
+        $stripe = new \Stripe\StripeClient(config('stripe.stripe_sk'));
+        $response = $stripe->checkout->sessions->retrieve($request->session_id);
+
+        // Check if customer details are available
+        $customerDetails = $response->customer_details ?? null;
+        $payerName = $customerDetails->name ?? 'Guest';
+        $payerEmail = $customerDetails->email ?? 'No email provided';
+
+        $payment = new StripePayment();
+
+        $payment->payment_id = $response->id;
+        $payment->product_name = session()->get('product_name') ?? 'Unknown Product';
+        $payment->quantity = session()->get('item_quantity') ?? 'Unknown quantity';
+        $payment->amount = session()->get('total_price') ?? 'Unknown amount';
+        $payment->currency = $response->currency;
+        $payment->payer_name = $payerName;
+        $payment->payer_email = $payerEmail;
+        $payment->payment_status = $response->status;
+        $payment->payment_method = 'stripe';
+        $payment->save();
+
+        // Send email after saving payment
+        try {
+            Mail::to($payerEmail)->send(new WelcomeEmail($payment));
+        } catch (\Exception $e) {
+            // Log the error for debugging
+            // \Log::error("Mail Error: " . $e->getMessage());
         }
+
+        // Clear session data
+        session()->forget(['product_name', 'item_id', 'total_price', 'item_quantity']);
+        session()->flash('success', 'Payment completed successfully!');
+
+        return redirect()->route('Detergents.index'); // Or redirect to a success page
+    } else {
+        return redirect()->route('cancel');
     }
+}
+
 
     public function cancel()
     {

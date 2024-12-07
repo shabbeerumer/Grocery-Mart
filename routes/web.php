@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AboutUs\AboutUsSection1Controller;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FaqsController;
@@ -29,6 +30,7 @@ use App\Http\Controllers\HomeSection3Controller;
 use App\Http\Controllers\HomeSection4Controller;
 use App\Http\Controllers\HomeSection5Controller;
 use App\Http\Controllers\HomeSection6Controller;
+use App\Http\Controllers\Mail\MailController;
 use App\Http\Controllers\Products\Detergents\DetergentSection1Controller;
 use App\Http\Controllers\Products\Detergents\DetergentSection2Controller;
 use App\Http\Controllers\Products\Detergents\DetergentSection3Controller;
@@ -55,12 +57,14 @@ Route::get('/blogpost', [BlogPostController::class, 'index'])->name('blogpost.in
 
 
 // user backend route start
+Route::post('/contactus/read', [ContactUsController::class, 'create'])->name('contactus.post');
 Route::post('/cart/add', [AddToCartController::class, 'addToCart'])->name('cart.add');
 Route::get('/cart', [AddToCartController::class, 'showCart'])->name('cart.show');
 Route::get('/cart/remove/{index}', [AddToCartController::class, 'removeItem'])->name('cart.remove');
 Route::post('stripe', [StripeController::class, 'stripe'])->name('stripe');
 Route::get('success', [StripeController::class, 'success'])->name('success');
 Route::get('cancel', [StripeController::class, 'cancel'])->name('cancel');
+Route::get('sendmail', [MailController::class, 'sendMail'])->name('mail');
 // user backend route end
 
 
@@ -84,6 +88,8 @@ Route::get('/product/detergents/section1', [DetergentSection1Controller::class, 
 Route::get('/product/detergents/section2', [DetergentSection2Controller::class, 'index'])->name('pds2.index');
 Route::get('/product/detergents/section3', [DetergentSection3Controller::class, 'index'])->name('pds3.index');
 Route::get('/product/detergents/section4', [DetergentSection4Controller::class, 'index'])->name('pds4.index');
+Route::get('/about/section1', [AboutUsSection1Controller::class, 'index'])->name('aboutus_section1.index');
+
 // admin route end
 
 
@@ -170,6 +176,16 @@ Route::post('/product/detergents/section4/update/{id}', [DetergentSection4Contro
 Route::get('/product/detergents/section4/delete/{id}', [DetergentSection4Controller::class, 'delete'])->name('pds4.delete');
 Route::post('/product/detergents/section4/second_create', [DetergentSection4Controller::class, 'stc'])->name('pds4.stc');
 // product/detergents/section4 route end
+
+
+// aboutus first section backend route start
+Route::post('/about/section1_post', [AboutUsSection1Controller::class, 'create'])->name('aboutus_section1.post');
+Route::get('/about/section1_read', [AboutUsSection1Controller::class, 'read'])->name('aboutus_section1.read');
+Route::get('/about/section1_edit/{id}', [AboutUsSection1Controller::class, 'edit'])->name('aboutus_section1.edit');
+Route::post('/about/section1_update/{id}', [AboutUsSection1Controller::class, 'update'])->name('aboutus_section1.update');
+Route::get('/about/section1_delete/{id}', [AboutUsSection1Controller::class, 'delete'])->name('aboutus_section1.delete');
+// aboutus end first section backend route
+
 
 
 // admin backend route end

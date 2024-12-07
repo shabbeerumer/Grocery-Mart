@@ -1,8 +1,13 @@
 @extends('layout.layout')
-
+@if(session('success'))
+<div class="alert alert-success alert-dismissible fade show text-center">
+    {{ session('success') }}
+</div>
+@endif
 @section('content')
+
 @foreach ($data1 as $item)
-    
+
 <div class="banner ">
     <div class="container  containerone" >
       <h2 class=" text-white  ">

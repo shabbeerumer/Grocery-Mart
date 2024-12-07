@@ -130,15 +130,16 @@
         </ul>
     </div>
       <div class="col-md-6 contact-right mt-md-0 mt-5 ps-lg-0">
-        <form action="https://sendmail.w3layouts.com/submitForm" method="post" class="signin-form">
+        <form action="{{route('contactus.post')}}" method="post" class="signin-form">
+          @csrf
           <div class="input-grids">
-            <input type="text" name="w3lName" id="w3lName" placeholder="Your Name*" class="contact-input" required="">
-            <input type="email" name="w3lSender" id="w3lSender" placeholder="Your Email*" class="contact-input" required="">
-            <input type="text" name="w3lSubect" id="w3lSubect" placeholder="Subject*" class="contact-input" required="">
-            <input type="text" name="w3lWebsite" id="w3lWebsite" placeholder="Website URL*" class="contact-input" required="">
+            <input type="text" name="name" id="w3lName" placeholder="Your Name*" class="contact-input" required="">
+            <input type="email" name="email" id="w3lSender" placeholder="Your Email*" class="contact-input" required="">
+            <input type="text" name="subject" id="w3lSubect" placeholder="Subject*" class="contact-input" required="">
+            <input type="text" name="website_url" id="w3lWebsite" placeholder="Website URL*" class="contact-input" required="">
           </div>
           <div class="form-input">
-            <textarea name="w3lMessage" id="w3lMessage" placeholder="Type your message here*" required=""></textarea>
+            <textarea name="message" id="w3lMessage" placeholder="Type your message here*" required=""></textarea>
           </div>
           <button class="btn1 btn-style1">Send Message</button>
         </form>

@@ -101,16 +101,27 @@
     <div class="para1">
       <div class="container">
         <div class="row">
-            <div class="col-lg-6 left-cont mt-lg-0 mt-5 ps-lg-4">
-              <h2 style="margin-top: 30px;">Best Offers & Best Deals In Our Mart!</h2>
+          @foreach ($data1 as $item)
               
-              <p class="mt-3">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-              <p class="mt-3 mb-2">Sunt in culpa qui officia deserunt mollit anim id est laborum.Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla ariatur in reprehenderit.</p>
-                <button type="button" class="btn btn-outline-danger" style="width: 12rem; ">View Our product</button>
+            <div class="col-lg-6 left-cont mt-lg-0 mt-5 ps-lg-4">
+              <h2 style="margin-top: 30px;"> {{$item->title}}
+                {{-- Best Offers & Best Deals In Our Mart! --}}
+              </h2>
+               <p class="mt-3">{{$item->description}}</p>
+
+              {{-- <p class="mt-3">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+              <p class="mt-3 mb-2">Sunt in culpa qui officia deserunt mollit anim id est laborum.Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla ariatur in reprehenderit.</p> --}}
+               
+              <button type="button" class="btn btn-outline-danger" style="width: 12rem; ">
+                {{$item->button_text}}
+                {{-- View Our product --}}
+              </button>
             </div>
           <div class="col-lg-6">
-            <img class="img-fluid radius-image" src="../images/about.jpg" alt="girlshopping" style="width: 600px;">
+            <img class="img-fluid radius-image" src="../image/{{$item->image}}" alt="girlshopping" style="width: 600px;">
           </div>
+          @endforeach
+
         </div>
       </div>
     </div>
